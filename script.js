@@ -5,7 +5,7 @@ window.onload = function(){
     const minsEl = document.getElementById("mins");
     const secondsEl = document.getElementById("seconds");
 
-    const christmas = "25 Dec 2022"
+    const christmas = "25 Dec 2023"
 
     function countdown(){
         const christmasDate = new Date(christmas);
