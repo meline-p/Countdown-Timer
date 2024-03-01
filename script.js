@@ -5,19 +5,24 @@ window.onload = function(){
     const minsEl = document.getElementById("mins");
     const secondsEl = document.getElementById("seconds");
 
-    const christmas = "25 Dec 2023"
-
     function countdown(){
-        const christmasDate = new Date(christmas);
         const currentDate = new Date();
-
+        let year = currentDate.getFullYear();
+    
+        if (currentDate.getMonth() === 11 && currentDate.getDate() > 25) {
+            year++;
+        }
+    
+        const christmas = `25 Dec ${year}`;
+        const christmasDate = new Date(christmas);
+    
         const totalSeconds = (christmasDate - currentDate) / 1000;
-
+    
         const days = Math.floor(totalSeconds / 3600 / 24);
         const hours = Math.floor(totalSeconds / 3600) % 24;
         const minutes = Math.floor(totalSeconds / 60) % 60;
         const seconds = Math.floor(totalSeconds) % 60;
-
+    
         daysEl.innerHTML = formatTime(days);
         hoursEl.innerHTML = formatTime(hours);
         minsEl.innerHTML = formatTime(minutes);
